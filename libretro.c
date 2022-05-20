@@ -1121,11 +1121,11 @@ void retro_run(void)
          eventMap[EC_SPACE]  = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_B)     ? 1 : 0;
          eventMap[EC_CTRL]   = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_X)     ? 1 : 0;
          eventMap[EC_GRAPH]  = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_Y)     ? 1 : 0;
-         eventMap[EC_F1]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_START)      ? 1 : 0;
-         eventMap[EC_F2]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_SELECT)      ? 1 : 0;
-         eventMap[EC_F3]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_L)      ? 1 : 0;
-         eventMap[EC_F4]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_R2)     ? 1 : 0;
-         eventMap[EC_F5]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_R)     ? 1 : 0;
+         eventMap[EC_F1]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_START)      ? 1 : 0;
+         eventMap[EC_F2]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_SELECT)      ? 1 : 0;
+         eventMap[EC_F3]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_L)      ? 1 : 0;
+         eventMap[EC_F4]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_R2)     ? 1 : 0;
+         eventMap[EC_F5]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_R)     ? 1 : 0;
       }
       
       if (input_devices[0] == RETRO_DEVICE_MAPPER && is_spectra){
@@ -1155,6 +1155,13 @@ void retro_run(void)
          eventMap[EC_JOY2_BUTTON2] = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_B)      ? 1 : 0;
       }
    }
+
+   log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: forcing F binds for metal gear...");
+   eventMap[EC_F1]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_START)      ? 1 : 0;
+   eventMap[EC_F2]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_SELECT)      ? 1 : 0;
+   eventMap[EC_F3]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_L)      ? 1 : 0;
+   eventMap[EC_F4]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_R2)     ? 1 : 0;
+   eventMap[EC_F5]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_R)     ? 1 : 0;
 
    ((R800*)boardInfo.cpuRef)->terminate = 0;
    boardInfo.run(boardInfo.cpuRef);   
