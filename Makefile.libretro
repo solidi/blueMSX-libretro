@@ -143,8 +143,10 @@ else ifeq ($(platform), miyoo-mini)
    CC = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-gcc
    CXX = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-g++
    STRIP = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-strip
+   AR = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-ar
+   CC_AS = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-as
    CFLAGS += -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -O3 -march=armv7ve -ffast-math -fomit-frame-pointer -fno-strength-reduce
-   LIBS := -lSDL -lpthread -lmi_sys -lmi_ao -lcam_os_wrapper -s -Wl -V
+   LIBS := -lSDL -lpthread -lmi_sys -lmi_ao -lcam_os_wrapper -s
    LDFLAGS := $(LIBS)
 
 # Classic Platforms ####################
