@@ -1063,8 +1063,7 @@ void retro_run(void)
             }
          }
       }
-      if (log_cb)
-         log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 1...");
+      log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 1...");
       eventMap[EC_COLECO1_1]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_X)      ? 1 : 0;
       eventMap[EC_COLECO1_2]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_Y)      ? 1 : 0;
       eventMap[EC_COLECO1_3]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_R)      ? 1 : 0;
@@ -1113,8 +1112,7 @@ void retro_run(void)
          eventMap[j] = input_state_cb(0, RETRO_DEVICE_KEYBOARD, 0, btn_map[j]) ? 1 : 0;
 
       if (input_devices[0] == RETRO_DEVICE_MAPPER && !is_spectra){
-         if (log_cb)
-            log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 2...");
+         log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 2...");
          eventMap[EC_LEFT]   = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_LEFT)  ? 1 : 0;
          eventMap[EC_RIGHT]  = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_RIGHT) ? 1 : 0;
          eventMap[EC_UP]     = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_UP)    ? 1 : 0;
@@ -1123,11 +1121,15 @@ void retro_run(void)
          eventMap[EC_SPACE]  = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_B)     ? 1 : 0;
          eventMap[EC_CTRL]   = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_X)     ? 1 : 0;
          eventMap[EC_GRAPH]  = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_Y)     ? 1 : 0;
+         eventMap[EC_F1]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_START)      ? 1 : 0;
+         eventMap[EC_F2]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_SELECT)      ? 1 : 0;
+         eventMap[EC_F3]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_L)      ? 1 : 0;
+         eventMap[EC_F4]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_R2)     ? 1 : 0;
+         eventMap[EC_F5]     = joypad_bits[1] & (1 << RETRO_DEVICE_ID_JOYPAD_R)     ? 1 : 0;
       }
       
       if (input_devices[0] == RETRO_DEVICE_MAPPER && is_spectra){
-         if (log_cb)
-            log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 3...");
+         log_cb(RETRO_LOG_INFO, "%s\n", "bluemsx: Mapping at 3...");
          eventMap[EC_JOY1_LEFT]    = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_LEFT)   ? 1 : 0;
          eventMap[EC_JOY1_RIGHT]   = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_RIGHT)  ? 1 : 0;
          eventMap[EC_JOY1_UP]      = joypad_bits[0] & (1 << RETRO_DEVICE_ID_JOYPAD_UP)     ? 1 : 0;
