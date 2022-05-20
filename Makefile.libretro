@@ -158,6 +158,11 @@ else ifeq ($(platform), miyoo-mini)
 # NESC, SNESC, C64 mini 
 else ifeq ($(platform), classic_armv7_a7)
 	TARGET := $(TARGET_NAME)_libretro.so
+   CC = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-gcc
+   CXX = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-g++
+   STRIP = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-strip
+   AR = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-ar
+   CC_AS = /opt/miyoomini-toolchain/bin/arm-linux-gnueabihf-as
 	fpic := -fPIC
 	SHARED := -shared -Wl,-version-script=link.T -Wl,-no-undefined
 	PLATFORM_DEFINES += -Ofast \
